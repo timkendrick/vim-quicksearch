@@ -1,5 +1,5 @@
-nnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromCurrentWord()<CR>
-xnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! gv<CR>
+nnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromCurrentWord()<CR>:<C-u>setlocal hlsearch<CR>
+xnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>setlocal hlsearch<CR>:<C-u>normal! gv<CR>
 xnoremap <silent> * :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! /<C-r>=@/<CR><C-v><CR><CR>
 xnoremap <silent> # :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! ?<C-r>=@/<CR><C-v><CR><CR>
 
