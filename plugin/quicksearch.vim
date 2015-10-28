@@ -1,4 +1,4 @@
-nnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromCurrentWord()<CR>:<C-u>setlocal hlsearch<CR>
+nnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromCurrentWord()<CR>:<C-u>setlocal hlsearch<CR>:echo "/" . @/<CR>
 xnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>setlocal hlsearch<CR>:<C-u>normal! gv<CR>
 nnoremap <Plug>QuicksearchSubstitute :%s/<C-r>///g<Left><Left>
 xnoremap <Plug>QuicksearchSubstitute :<C-u><C-r>=(visualmode() == "v" ? "%" : "'<,'>")<CR>s/<C-r>///g<Left><Left>
