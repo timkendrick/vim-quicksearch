@@ -7,6 +7,10 @@ xnoremap <Plug>QuicksearchSubstitute :<C-u><C-r>=(visualmode() == "v" ? "%" : "'
 xnoremap <silent> * :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! /<C-r>=@/<CR><C-v><CR><CR>
 xnoremap <silent> # :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! ?<C-r>=@/<CR><C-v><CR><CR>
 
+" Reuse flags when repeating last substitution
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
 function! s:PopulateSearchRegisterFromCurrentWord()
 	call s:PopulateSearchRegister('yiw')
 endfunction
