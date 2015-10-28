@@ -1,5 +1,9 @@
 nnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromCurrentWord()<CR>:<C-u>setlocal hlsearch<CR>
 xnoremap <silent> <Plug>QuicksearchSetBuffer :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>setlocal hlsearch<CR>:<C-u>normal! gv<CR>
+nnoremap <Plug>QuicksearchSubstitute :%s/<C-r>///g<Left><Left>
+xnoremap <Plug>QuicksearchSubstitute :<C-u><C-r>=(visualmode() == "v" ? "%" : "'<,'>")<CR>s/<C-r>///g<Left><Left>
+
+" Enable * and # keys in visual mode
 xnoremap <silent> * :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! /<C-r>=@/<CR><C-v><CR><CR>
 xnoremap <silent> # :<C-u>call <SID>PopulateSearchRegisterFromVisualSelection()<CR>:<C-u>normal! ?<C-r>=@/<CR><C-v><CR><CR>
 
