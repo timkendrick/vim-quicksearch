@@ -12,16 +12,19 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 function! s:PopulateSearchRegisterFromCurrentWord()
-	call s:PopulateSearchRegister('yiw')
+	let existing_register_value = @0
+	normal! "0yiw
+	let @/ = '\<' . @0 . '\>'
+	let @0 = existing_register_value
 endfunction
 
 function! s:PopulateSearchRegisterFromVisualSelection()
-	call s:PopulateSearchRegister('gvy')
+	let existing_register_value = @0
+	normal! "0gvy
+	let @/ = '\V' . s:escapeSearchString(@0)
+	let @0 = existing_register_value
 endfunction
 
-function! s:PopulateSearchRegister(command)
-	let existing_register_value = @0
-	execute 'normal! ' . a:command
-	let @/ = '\V' . substitute(escape(@0, '/\'), '\n', '\\n', 'g')
-	let @0 = existing_register_value
+function! s:escapeSearchString(string)
+	return substitute(escape(a:string, '/\'), '\n', '\\n', 'g')
 endfunction
